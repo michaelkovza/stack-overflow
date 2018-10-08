@@ -8,21 +8,22 @@ class Main extends Component {
 
     render() {
 
-        const { questions } = this.props;
+        const { questions, sortType } = this.props;
 
         return (
             <section className='main'>
                 <SearchForm/>
                 {questions && <Sorts questions={ questions } /> }
-                <QuestionsList questions={ questions }/>
+                <QuestionsList sortType={sortType} questions={ questions }/>
             </section>
         )
     }
 }
 
-const mapStateToProps = ({ searchQuestions }) => {
+const mapStateToProps = ({ searchQuestions, sortType }) => {
     return {
-        questions: searchQuestions.questions
+        questions: searchQuestions.questions,
+        sortType: sortType
     }
 };
 

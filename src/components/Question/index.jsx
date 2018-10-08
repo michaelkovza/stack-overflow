@@ -6,7 +6,12 @@ class Question extends Component {
 
     renderQuestionContent = (question) => (
         <div className='question__content-container'>
-            <p>Link to question: <a href={question.link} rel='noopener noreferrer' target='_blank'>{question.link}</a></p>
+            <p className='question__content'>
+                Link to question:
+                <a className='question__link' href={question.link} rel='noopener noreferrer' target='_blank'>
+                    {question.link}
+                </a>
+            </p>
         </div>
     );
 
@@ -20,7 +25,7 @@ class Question extends Component {
                     {question.title}
                 </h1>
                 <div className='question__stats'>
-                    <p className='question__content'>Answer count: {question.answer_count}</p>
+                    <p className='question__content'>View count: {question.view_count}</p>
                     <time className='question__content'>{moment.utc(question.creation_date * 1000).format('LL')}</time>
                 </div>
                 {isOpen && this.renderQuestionContent(question)}

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import searchQuestions from './search-questions';
-import sorts from './sorts';
+import sortType from './sort-by-type';
 
 const reducers = {
     searchQuestions,
-    sorts
+    sortType
 };
 
 export default combineReducers(reducers);

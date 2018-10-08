@@ -2,7 +2,7 @@ import { SET_SORT } from '../constants/ActionTypes';
 
 const initialState = null;
 
-const sorts = (state = initialState, action) => {
+const sortByType = (state = initialState, action) => {
     switch (action.type) {
         case SET_SORT: {
             return action.payload
@@ -12,4 +12,4 @@ const sorts = (state = initialState, action) => {
     }
 };
 
-export default sorts;
+export default sortByType;
