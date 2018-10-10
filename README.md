@@ -1,2 +1,4 @@
 # Тестовое задание
-Для проекта был использован стандартный [React-стаб](https://github.com/facebook/create-react-app), который предоставлен на официальном сайте
+
+### `npm start` или `yarn start`
+Запускает проект в дев режиме на [http://localhost:3000](http://localhost:3000).
