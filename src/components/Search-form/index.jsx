@@ -7,13 +7,16 @@ class SearchForm extends Component {
     inputRef = React.createRef();
 
     render() {
+
+        const { className } = this.props;
+
         return (
-            <form className='form'>
+            <form className={`${className} form`}>
                 <input ref={ this.inputRef } className='form__input' type='text'/>
                 <button
                     onClick={ (e) => { e.preventDefault(); this.props.searchQuestions(this.inputRef.current.value) } }
                     className='form__button'>
-                    Найти
+                    Find
                 </button>
             </form>
         )

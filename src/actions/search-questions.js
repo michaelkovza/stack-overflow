@@ -10,6 +10,10 @@ const receiveSearchQuestions = (questions) => ({
     payload: questions
 });
 
+const errorSearchQuestions = () => ({
+    type: types.SEARCH_QUESTIONS_FAIL
+});
+
 export const searchQuestions = (questionTitle) => dispatch => {
 
     if(questionTitle === '') {
@@ -19,8 +23,11 @@ export const searchQuestions = (questionTitle) => dispatch => {
     dispatch(requestSearchQuestions());
 
     return fetch(`https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=${questionTitle}&site=stackoverflow`, { method: 'GET' })
-        .then(response => response.json())
-        .then(responseObject => {
-            dispatch(receiveSearchQuestions(responseObject.items))
-        })
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            dispatch(errorSearchQuestions());
+        }).then(parseResponse => dispatch(receiveSearchQuestions(parseResponse.items)))
+
 };
