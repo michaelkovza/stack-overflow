@@ -12,7 +12,7 @@ class Main extends Component {
     state = {
         questionsLength: null,
         currentPage: 1,
-        viewItemsCount: 5
+        viewItemsCount: 20
     };
 
     handleChangePaginationCurrentPage = event => {
